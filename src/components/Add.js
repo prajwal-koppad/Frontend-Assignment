@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-export default function Add({setIsAdding }) {
+export default function Add({ setIsAdding }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setlastName] = useState("");
   const [dob, setDob] = useState("");

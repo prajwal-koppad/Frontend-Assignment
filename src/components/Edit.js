@@ -1,17 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React from 'react'
 
-const Edit = () => {
-  const [details,setDetails] = useState({})
-  useEffect(() => {
-    let data = JSON.parse(sessionStorage.getItem("userDetails"));
-    console.log("Details", data);
-    setDetails(data);
-  }, []);
+export default function Edit({ setIsEditing }) {
   return (
     <div>
-      Editing
+    <button className="backBtn" onClick={() => setIsEditing(false)}>Back</button>
+    <div className="formContainer">
+      <form> 
+        <h1>Editing the User</h1>
+        <label htmlFor="firstName">First Name</label>
+        <input type="text"/>
+        <label htmlFor="lastName">Last Name</label>
+        <input type="text"/>
+        <label htmlFor="dob">Date Of Birth</label>
+        <input type="date"/>
+        <label htmlFor="city">City</label>
+        <input type="text"/>
+        <label htmlFor="mobileNumber">Mobile Number</label>
+        <input type="text"/>
+        <div>
+          <input className="AddBtn" type="submit" value="Save" />
+        </div>
+      </form>
     </div>
+  </div>
   );
 };
 
-export default Edit;
+

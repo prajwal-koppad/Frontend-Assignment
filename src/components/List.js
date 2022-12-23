@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from "react";
 
-export default function List({setIsEditing}) {
+export default function List({ setIsEditing }) {
   const [details, setDetails] = useState({})
   useEffect(() => {
     let data = JSON.parse(sessionStorage.getItem("userDetails"));
-    console.log("Details", data);
+    sessionStorage.setItem("userDetails",JSON.stringify(data));
     setDetails(data);
   }, []);
 
-  const deleteData = (id) => {
+  const handleDelete = (id) => {
     let users = details.users.filter((item) => item.id !== id);
     let data = {users: users}
-    console.log("data", data)
     data.users.map((user, i) => user.id=i+1)
     setDetails(data);
     sessionStorage.setItem("userDetails",JSON.stringify(data));
   }
-  // const handleEdit=(id)=>{
-  //   sessionStorage.setItem("edit",JSON.stringify(id));
-  //   setIsEditing(true);
-  // }
+
+  const handleEdit = (id) => {
+    setIsEditing(true);
+    let user = details.users.filter((item) => item.id === id);
+    console.log(user, id);
+  }
   return (
     <div className="table">
       <h2 className="list">List of Users</h2>
@@ -46,10 +47,10 @@ export default function List({setIsEditing}) {
                 <td>{user.city}</td>
                 <td>{user.mobileNumber}</td>
                 <td className="right">
-                  <button className="button">Edit</button>
+                  <button className="button" onClick={() =>handleEdit(user.id)}>Edit</button>
                 </td>
                 <td className="left">
-                  <button className="button" onClick={() => deleteData(user.id)}>Delete</button>
+                  <button className="button" onClick={() => handleDelete(user.id)}>Delete</button>
                 </td>
               </tr>
             ))
