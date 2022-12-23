@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.button {
+    background-color: #ffffff; /* Green */
+    color: #19e220;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 0px 0px 20px 0px;
+    border: 2px solid #19e220;
+    border-radius: 25px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.AddBtn {
+    padding: 0px 0px 0px 10px;
+    color:#19e220;
+    width: 200px;
+    border: 2px solid #0df330;
+    border-radius: 25px;
+
+}
+
+.button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+.AddBtn:hover {
+    background-color: #4CAF50;/* Green */
+    color: white;
+}
+table {
+    width: 100%;
+    height: 25%;
+    margin-top: 5px;
+    font-size: 20px;
+    text-align: center;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.list {
+    background-color: rgb(218, 221, 223);
+    padding: 10px 10px;
+    border-radius: 10px;
   }
-  to {
-    transform: rotate(360deg);
+thead {
+    background-color: rgb(218, 221, 223);
+    padding: 10px 10px;
+    border-radius: 10px;
+}
+
+td {
+    padding: 0px;
+    height: 50px;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
   }
+ 
+.formContainer {
+    width: 50%;
+    background-color: rgb(218, 221, 223);
+    justify-content: center;
+    margin: 0px 0px 0px 375px;
+    border: 1px solid white;
+    border-radius: 25px;
+    padding: 10px 10px;
+  }
+
+input {
+    width: 95%;
+    height: 40px;
+    margin: 10px 10px;
+    font-size: 20px;
+}
+label {
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+
+}
+.headerContainer {
+    background-color:  rgb(218, 221, 223);
+    padding: 10px 10px;
+    border-radius: 10px;
 }
