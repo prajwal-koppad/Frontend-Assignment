@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-export default function Add({ users, setUsers, setIsAdding }) {
+export default function Add({setIsAdding }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setlastName] = useState("");
   const [dob, setDob] = useState("");
@@ -14,7 +14,9 @@ export default function Add({ users, setUsers, setIsAdding }) {
   }, []);
 
   const handleAdd = (e) => {
-    const id = users.length + 1;
+    e.preventDefault();
+    let data = JSON.parse(sessionStorage.getItem("userDetails"));
+    const id = data.users.length + 1;
     const newUser = {
       id,
       firstName,
@@ -23,10 +25,11 @@ export default function Add({ users, setUsers, setIsAdding }) {
       city,
       mobileNumber,
     };
-    users.push(newUser);
-    setUsers(users);
+    //let index = data.users.length();
+    data.users.push(newUser)
+    sessionStorage.setItem("userDetails",JSON.stringify(data));
     setIsAdding(false);
-    alert("New User Added successfully");
+    alert("New User Added Successfully");
   };
 
   const handleBack = () => {setIsAdding(false)};

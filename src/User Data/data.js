@@ -1,4 +1,5 @@
-const userDetails = [
+const userDetails = {"users":
+  [
     {
       id: 1,
       firstName: 'Susan',
@@ -79,6 +80,6 @@ const userDetails = [
       city: 'Portugal',
       mobileNumber: '98765'
     }
-  ];
+  ]};
 
     export {userDetails};
