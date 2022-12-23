@@ -29,8 +29,11 @@ export default function Add({ users, setUsers, setIsAdding }) {
     alert("New User Added successfully");
   };
 
+  const handleBack = () => {setIsAdding(false)};
+
   return (
     <div>
+      <button className="backBtn" onClick={handleBack}>Back</button>
       <div className="formContainer">
         <form onSubmit={handleAdd}>
           <h1>Add New User</h1>

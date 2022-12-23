@@ -4,34 +4,51 @@
 }
 
 .button {
-    background-color: #ffffff; /* Green */
-    color: #19e220;
-    padding: 10px 25px;
+    background-color: #ffffff;
+    color: rgb(4, 116, 209);
+    padding-left: 10px;
+    padding-right: 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 20px;
-    margin: 0px 0px 20px 0px;
-    border: 2px solid #19e220;
+    font-weight: bold;
+    border: 2px solid rgb(4, 116, 209);
     border-radius: 25px;
+    transition-delay: 100ms;
 }
 
 .AddBtn {
     padding: 0px 0px 0px 10px;
-    color:#19e220;
+    color: rgb(4, 116, 209);
     width: 200px;
-    border: 2px solid #0df330;
+    font-weight: bold;
+    border: 2px solid rgb(4, 116, 209);
     border-radius: 25px;
+}
+.backBtn {
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 40px;
+    width: 75px;
+    height: 30px;
+    border: 2px solid rgb(4, 116, 209);
+    border-radius: 25px;
+}
 
+.backBtn:hover {
+    background-color: rgb(4, 116, 209);
+    color: black;
 }
 
 .button:hover {
-    background-color: #4CAF50; /* Green */
-    color: white;
+    background-color: rgb(4, 116, 209); 
+    color: black;
 }
 .AddBtn:hover {
-    background-color: #4CAF50;/* Green */
-    color: white;
+    background-color: rgb(4, 116, 209);
+    color: black;
 }
 table {
     width: 100%;
