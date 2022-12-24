@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 export default function List({ setIsEditing }) {
   const [details, setDetails] = useState({})
   useEffect(() => {
-    let data = JSON.parse(sessionStorage.getItem("userDetails"));
+    let data = JSON.parse(sessionStorage.getItem("userDetails")); //parse the data from the session storage and sets into details state variable
     setDetails(data);
   }, []);
 
@@ -18,8 +18,9 @@ export default function List({ setIsEditing }) {
 
   const handleEdit = (id) => {
     setIsEditing(true);
-    let users = details.users.filter((item) => item.id === id);
-    console.log(users, id);
+    let users = details.users.filter((item) => item.id === id); //gives the id of user selected to edit
+    sessionStorage.setItem("user",JSON.stringify(users));
+    // console.log(users, id);
   }
   return (
     <div className="table">
