@@ -6,7 +6,7 @@ import { userDetails } from "../User Data/data";
 import Edit from "./Edit";
 
 export default function Dashboard() {
-  const [users, setUsers] = useState(userDetails);
+  // const [users, setUsers] = useState(userDetails);
   const [isEditing, setIsEditing] = useState(false);
   const [isAdding, setIsAdding] = useState(false);
 
@@ -21,17 +21,16 @@ export default function Dashboard() {
         <>
           <Header setIsAdding={setIsAdding}
                    />
-          <List setIsEditing={setIsEditing}
-                users={users}/>
+          <List setIsEditing={setIsEditing}/>
         </>
       )}
       {/* This will show the form to enter the details */}
       {isAdding && (
-        <Add users={users} setUsers={setUsers} setIsAdding={setIsAdding} />
+        <Add setIsAdding={setIsAdding} />
       )}
       {/* This will show the form to edit the selectd user details */}
       {isEditing && (
-        <Edit user={users} setUsers={setUsers} setIsEditing={setIsEditing}/>
+        <Edit setIsEditing={setIsEditing}/>
       )}
     </div>
   );

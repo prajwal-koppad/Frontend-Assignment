@@ -25,7 +25,7 @@ export default function Edit({ setIsEditing }) {
     const {
       target: { name, value },
     } = e;
-    setUser({
+    setUser({ //destructured the user and search the details for the selected field in the form
       ...user,
       [name]: value,
     });
@@ -33,18 +33,26 @@ export default function Edit({ setIsEditing }) {
 
   const handleSave = (e) => {
     e.preventDefault();
-    // let id = details.id;
-    // let editUser = {
-    //   id,
-    //   firstName: user.firstName,
-    //   lastName: user.lastName,
-    //   dob: user.dob,
-    //   city: user.city,
-    //   mobileNumber: user.mobileNumber
-    // };
-    // let users = details.users.filter((item) => item.id !== id); //gives the ids of users except the one being deleted.
-    // console.log("myUser", users);
-    // setIsEditing(false);
+    let data = JSON.parse(sessionStorage.getItem("userDetails"));
+    let users = data.users
+    let id = details.id;
+    const editUser = {
+      id,
+      firstName :user.firstName,
+      lastName: user.lastName,
+      dob: user.dob,
+      city: user.city,
+      mobileNumber: user.mobileNumber
+    }
+    let det = { //destructered the users again and sets values
+      ...users,
+      [id - 1]: editUser
+    }
+    let arr = Object.values(det); //stores all the updates into arr
+    data = { users: arr } //sets all values of that perticular edited uder
+    sessionStorage.setItem("userDetails", JSON.stringify(data)); //stores the data into session storage except the one got deleted.
+    setIsEditing(false);
+    alert("User details edited successfully")
   }
   // console.log(user);
   return (
@@ -76,7 +84,7 @@ export default function Edit({ setIsEditing }) {
             <input
               id="dob"
               type="date"
-              name="firstName"
+              name="dob"
               value={user.dob}
               onChange={(e) => handleChange(e)}
             />
