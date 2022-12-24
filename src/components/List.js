@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { userDetails } from "../User Data/data";
 
-export default function List({ setIsEditing }) {
-  const [details, setDetails] = useState({})
+export default function List({ setIsEditing, users }) {
+  const [details, setDetails] = useState(users)
   useEffect(() => {
     let data = JSON.parse(sessionStorage.getItem("userDetails")); //parse the data from the session storage and sets into details state variable
     setDetails(data);
-    console.log("userData", data);
+    // console.log("userData", data);
   }, []);
+  // console.log("userDetails", details);
 
-  console.log("userDetails", details);
 
   const handleDelete = (id) => {
     let users = details.users.filter((item) => item.id !== id); //gives the ids of users except the one being deleted.
