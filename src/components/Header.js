@@ -6,7 +6,8 @@ export default function Header({ setIsAdding }) {
       <div className="headerContainer">
         <h1>User Management System - Dashboard</h1>
         <div>
-          <button className="button" onClick={() => setIsAdding(true)}>
+          {/*opens the add form when clicked on*/}
+          <button className="button" onClick={() => setIsAdding(true)}> 
             Add New User
           </button>
         </div>

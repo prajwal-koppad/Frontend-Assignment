@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 
 export default function Add({ setIsAdding }) {
+
+  //States of all fields set to null
   const [firstName, setFirstName] = useState("");
   const [lastName, setlastName] = useState("");
   const [dob, setDob] = useState("");
@@ -25,6 +27,7 @@ export default function Add({ setIsAdding }) {
       city,
       mobileNumber,
     };
+    
     //let index = data.users.length();
     data.users.push(newUser)
     sessionStorage.setItem("userDetails",JSON.stringify(data));

@@ -4,22 +4,22 @@ export default function List({ setIsEditing }) {
   const [details, setDetails] = useState({})
   useEffect(() => {
     let data = JSON.parse(sessionStorage.getItem("userDetails"));
-    sessionStorage.setItem("userDetails",JSON.stringify(data));
     setDetails(data);
   }, []);
 
   const handleDelete = (id) => {
-    let users = details.users.filter((item) => item.id !== id);
+    let users = details.users.filter((item) => item.id !== id); //gives the ids of users except the one being deleted.
     let data = {users: users}
     data.users.map((user, i) => user.id=i+1)
     setDetails(data);
-    sessionStorage.setItem("userDetails",JSON.stringify(data));
+    sessionStorage.setItem("userDetails",JSON.stringify(data)); //stores the data into session storage except the one got deleted.
+    alert("Deleted the user successfully");
   }
 
   const handleEdit = (id) => {
     setIsEditing(true);
-    let user = details.users.filter((item) => item.id === id);
-    console.log(user, id);
+    let users = details.users.filter((item) => item.id === id);
+    console.log(users, id);
   }
   return (
     <div className="table">
@@ -37,10 +37,10 @@ export default function List({ setIsEditing }) {
           </tr>
         </thead>
         <tbody>
-          {details.users ? (
+          {details.users ? ( //takes the data from the details and maps them with the respected fields.
             details.users.map((user,i) => (
               <tr key={user.id}>
-                <td>{i+1}</td>
+                <td>{i + 1}</td>
                 <td>{user.firstName}</td>
                 <td>{user.lastName}</td>
                 <td>{user.dob}</td>
