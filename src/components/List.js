@@ -5,7 +5,10 @@ export default function List({ setIsEditing }) {
   useEffect(() => {
     let data = JSON.parse(sessionStorage.getItem("userDetails")); //parse the data from the session storage and sets into details state variable
     setDetails(data);
+    console.log("userData", data);
   }, []);
+
+  console.log("userDetails", details);
 
   const handleDelete = (id) => {
     let users = details.users.filter((item) => item.id !== id); //gives the ids of users except the one being deleted.
@@ -23,6 +26,7 @@ export default function List({ setIsEditing }) {
     // console.log(users, id);
   }
   return (
+    details !==  {} ? (
     <div className="table">
       <h2 className="list">List of Users</h2>
       <table>
@@ -63,5 +67,8 @@ export default function List({ setIsEditing }) {
         </tbody>
       </table>
     </div>
+    ): (<div>
+      <h1>Please reload the page to view the table </h1>
+      </div>)
   );
 }
